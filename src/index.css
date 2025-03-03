@@ -1,0 +1,228 @@
+@font-face {
+  font-family: 'Fira Code';
+  src: url('/fonts/FiraCode-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Fira Code';
+  src: url('/fonts/FiraCode-Bold.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* Catppuccin Mocha colors */
+  --rosewater: #f5e0dc;
+  --flamingo: #f2cdcd;
+  --pink: #f5c2e7;
+  --mauve: #cba6f7;
+  --red: #f38ba8;
+  --maroon: #eba0ac;
+  --peach: #fab387;
+  --yellow: #f9e2af;
+  --green: #a6e3a1;
+  --teal: #94e2d5;
+  --sky: #89dceb;
+  --sapphire: #74c7ec;
+  --blue: #89b4fa;
+  --lavender: #b4befe;
+  --text: #cdd6f4;
+  --subtext1: #bac2de;
+  --subtext0: #a6adc8;
+  --overlay2: #9399b2;
+  --overlay1: #7f849c;
+  --overlay0: #6c7086;
+  --surface2: #585b70;
+  --surface1: #45475a;
+  --surface0: #313244;
+  --base: #1e1e2e;
+  --mantle: #181825;
+  --crust: #11111b;
+
+  font-family: 'Fira Code', monospace;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: dark;
+  color: var(--text);
+  background-color: var(--base);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  font-weight: 500;
+  color: var(--blue);
+  text-decoration: none;
+  transition: color 0.25s;
+}
+
+a:hover {
+  color: var(--mauve);
+  text-decoration: underline;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--mauve);
+  line-height: 1.1;
+}
+
+h1 {
+  font-size: 3.2em;
+}
+
+h2 {
+  font-size: 2.4em;
+}
+
+button {
+  border-radius: 4px;
+  border: 1px solid var(--surface2);
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: 'Fira Code', monospace;
+  background-color: var(--surface0);
+  color: var(--text);
+  cursor: pointer;
+  transition: border-color 0.25s, background-color 0.25s;
+}
+
+button:hover {
+  border-color: var(--mauve);
+  background-color: var(--surface1);
+}
+
+button:focus,
+button:focus-visible {
+  outline: 2px solid var(--mauve);
+}
+
+code {
+  background-color: var(--surface0);
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  font-family: 'Fira Code', monospace;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+section {
+  padding: 4rem 0;
+}
+
+.terminal {
+  background-color: var(--crust);
+  border-radius: 8px;
+  padding: 1rem;
+  border: 1px solid var(--surface2);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.terminal-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--surface0);
+}
+
+.terminal-button {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 6px;
+}
+
+.terminal-button.red {
+  background-color: var(--red);
+}
+
+.terminal-button.yellow {
+  background-color: var(--yellow);
+}
+
+.terminal-button.green {
+  background-color: var(--green);
+}
+
+.terminal-title {
+  margin-left: 8px;
+  font-size: 0.8rem;
+  color: var(--subtext0);
+}
+
+.terminal-content {
+  font-family: 'Fira Code', monospace;
+  color: var(--text);
+  white-space: pre-wrap;
+  max-height: 350px;
+  overflow-y: auto;
+  padding: 0.5rem;
+  background-color: var(--crust);
+}
+
+.terminal-line {
+  line-height: 1.4;
+  margin-bottom: 0.2rem;
+}
+
+.prompt {
+  color: var(--green);
+  font-weight: bold;
+  display: inline;
+  margin-right: 0.25rem;
+}
+
+.command {
+  color: var(--text);
+  font-weight: normal;
+  display: inline;
+}
+
+.output {
+  color: var(--subtext1);
+  display: block;
+  padding-left: 0.5rem;
+}
+
+.cursor {
+  display: inline-block;
+  width: 0.6em;
+  height: 1.2em;
+  background-color: var(--mauve);
+  animation: blink 1s step-end infinite;
+  vertical-align: text-bottom;
+  margin-left: 2px;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
