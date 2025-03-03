@@ -6,7 +6,7 @@ function App() {
   const [currentCommandIndex, setCurrentCommandIndex] = useState(0);
   const [currentCharIndex, setCurrentCharIndex] = useState(0);
   const [showCursor, setShowCursor] = useState(true);
-  const [isTyping, setIsTyping] = useState(true);
+  const [isTyping] = useState(true);
   const [publicKey, setPublicKey] = useState("");
   const [email, setEmail] = useState("");
   const [waitlistSubmitted, setWaitlistSubmitted] = useState(false);
