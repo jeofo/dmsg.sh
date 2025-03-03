@@ -30,10 +30,6 @@ function App() {
       ],
     },
     {
-      command: "dmsg --version",
-      output: ["dmsg v1.2.0 (build 2025-03-01)"],
-    },
-    {
       command: "dmsg features",
       output: [
         "Features:",
@@ -41,9 +37,9 @@ function App() {
         "✓ End-to-end encrypted communication",
         "✓ Direct replacement for slack, optimized for developers",
         "✓ Intuitive commands with backslash",
-        "✓ Persistent message history with local SQLite database",
+        "✓ Persistent message history",
         "✓ Multi-organization and multi-channel support",
-        "✓ Support for images and file transfers (planned)",
+        "✓ Support for images and file transfers",
       ],
     },
   ];
@@ -142,7 +138,9 @@ function App() {
             <h1>
               dmsg<span className="dot">.</span>sh
             </h1>
-            <p className="tagline">Comms for developers</p>
+            <p className="tagline">
+              Developer-first secure messaging, in your terminal
+            </p>
             <div className="hero-buttons">
               <a href="#waitlist" className="btn primary">
                 Join Waitlist
@@ -188,9 +186,10 @@ function App() {
           <div className="feature-grid">
             <div className="feature-card">
               <div className="feature-icon">🔒</div>
-              <h3>Private-key Authentication</h3>
+              <h3>RSA + Signal</h3>
               <p>
-                Secure access using your SSH keys. No passwords to remember or
+                Secure access using your private keys. Messages are end-to-end
+                encrypted via Signal Protocol. No passwords to remember or
                 reset.
               </p>
             </div>
@@ -267,7 +266,7 @@ function App() {
                   />
                 </div>
                 <div className="form-group">
-                  <label htmlFor="publicKey">Public SSH Key</label>
+                  <label htmlFor="publicKey">Public Key</label>
                   <textarea
                     id="publicKey"
                     value={publicKey}
@@ -276,7 +275,8 @@ function App() {
                     required
                   />
                   <small>
-                    you should know what this is, if not, checkout slack 😎
+                    you should know what this is, if not, maybe checkout slack
+                    😎
                   </small>
                 </div>
                 <button type="submit" className="btn primary">
@@ -397,7 +397,7 @@ function App() {
             <p>
               &copy; {new Date().getFullYear()} dmsg.sh. All rights reserved.
             </p>
-            <p>Made with 💜 for developers</p>
+            <p>Made with 💜 for developers by @jeofo</p>
           </div>
         </div>
       </footer>
