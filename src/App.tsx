@@ -142,7 +142,7 @@ function App() {
             <h1>
               dmsg<span className="dot">.</span>sh
             </h1>
-            <p className="tagline">Communication for developers</p>
+            <p className="tagline">Comms for developers</p>
             <div className="hero-buttons">
               <a href="#waitlist" className="btn primary">
                 Join Waitlist
@@ -272,12 +272,11 @@ function App() {
                     id="publicKey"
                     value={publicKey}
                     onChange={(e) => setPublicKey(e.target.value)}
-                    placeholder="Paste your public SSH key here (ssh-rsa or ssh-ed25519 format)"
+                    placeholder="paste your public key here (ssh-rsa or ssh-ed25519 format)"
                     required
                   />
                   <small>
-                    Typically found in ~/.ssh/id_rsa.pub or
-                    ~/.ssh/id_ed25519.pub
+                    you should know what this is, if not, checkout slack 😎
                   </small>
                 </div>
                 <button type="submit" className="btn primary">
