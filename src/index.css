@@ -226,3 +226,26 @@ section {
   0%, 100% { opacity: 1; }
   50% { opacity: 0; }
 }
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .terminal, 
+  .terminal-content, 
+  .terminal-line, 
+  .prompt, 
+  .command, 
+  .output {
+    text-align: left !important;
+  }
+  
+  .hero-terminal {
+    text-align: left !important;
+    align-self: flex-start;
+    margin-left: 0;
+    width: 100%;
+  }
+  
+  .terminal {
+    max-width: 100%;
+  }
+}

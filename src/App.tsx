@@ -11,6 +11,32 @@ function App() {
   const [email, setEmail] = useState("");
   const [waitlistSubmitted, setWaitlistSubmitted] = useState(false);
 
+  const addToWaitlist = async () => {
+    if (!email || !publicKey) {
+      alert("😡 please enter both email and public key");
+      return;
+    }
+
+    const url = `https://firestore.googleapis.com/v1/projects/
+dmsg-f208f/databases/(default)/documents/waitlist`;
+
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        fields: {
+          email: { stringValue: email },
+          publicKey: { stringValue: publicKey },
+        },
+      }),
+    });
+
+    const result = await response.json();
+    console.log("Document added:", result);
+  };
+
   const commands = [
     {
       command: "dmsg --help",
@@ -30,7 +56,7 @@ function App() {
       ],
     },
     {
-      command: "dmsg features",
+      command: "dmsg --features",
       output: [
         "Features:",
         "✓ Private-key based authentication",
@@ -42,14 +68,22 @@ function App() {
         "✓ Support for images and file transfers",
       ],
     },
+    {
+      command: "dmsg login",
+      output: [
+        "Generating keys...",
+        "Connected to server 801b225753f5... Signal Protocol initialized",
+      ],
+    },
   ];
 
   const terminalRef = useRef<HTMLDivElement>(null);
 
-  const handleWaitlistSubmit = (e: React.FormEvent) => {
+  const handleWaitlistSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     // In a real implementation, you would send this data to your server
     console.log("Submitted:", { email, publicKey });
+    await addToWaitlist();
     setWaitlistSubmitted(true);
   };
 
@@ -150,17 +184,25 @@ function App() {
               </a>
             </div>
           </div>
-          <div className="hero-terminal">
-            <div className="terminal">
+          <div className="hero-terminal" style={{ textAlign: "left" }}>
+            <div className="terminal" style={{ textAlign: "left" }}>
               <div className="terminal-header">
                 <div className="terminal-button red"></div>
                 <div className="terminal-button yellow"></div>
                 <div className="terminal-button green"></div>
                 <div className="terminal-title">dmsg.sh</div>
               </div>
-              <div className="terminal-content" ref={terminalRef}>
+              <div
+                className="terminal-content"
+                ref={terminalRef}
+                style={{ textAlign: "left" }}
+              >
                 {terminalContent.map((line, index) => (
-                  <div key={index} className="terminal-line">
+                  <div
+                    key={index}
+                    className="terminal-line"
+                    style={{ textAlign: "left" }}
+                  >
                     {line.startsWith("$ ") ? (
                       <>
                         <span className="prompt">$</span>{" "}
@@ -324,8 +366,8 @@ function App() {
                 After installation, you'll need to set up your account using
                 your SSH keys:
               </p>
-              <div className="terminal">
-                <div className="terminal-content">
+              <div className="terminal" style={{ textAlign: "left" }}>
+                <div className="terminal-content" style={{ textAlign: "left" }}>
                   <span className="prompt">$ </span>
                   <span className="command">dmsg login</span>
                   <br />
@@ -347,8 +389,8 @@ function App() {
                 </div>
               </div>
               <p>Start a new chat session:</p>
-              <div className="terminal">
-                <div className="terminal-content">
+              <div className="terminal" style={{ textAlign: "left" }}>
+                <div className="terminal-content" style={{ textAlign: "left" }}>
                   <span className="prompt">$ </span>
                   <span className="command">dmsg</span>
                   <br />

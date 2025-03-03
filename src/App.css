@@ -386,6 +386,21 @@ footer {
     justify-content: center;
   }
   
+  .hero-terminal {
+    align-self: flex-start;
+    margin-left: 0;
+    width: 100%;
+    text-align: left !important;
+  }
+  
+  /* Override any inherited text alignment for terminal elements */
+  .terminal, 
+  .terminal-content, 
+  .terminal-line, 
+  .terminal-header {
+    text-align: left !important;
+  }
+  
   .footer-content {
     flex-direction: column;
     gap: 2rem;
